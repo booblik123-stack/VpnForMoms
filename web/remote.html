@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control - Claude</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .qr-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .qr-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .qr-code {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .info {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .divider {
+            margin: 30px 0;
+            border-top: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Remote Control</h1>
+        <p class="subtitle">Управляй машиной из Claude на телефоне</p>
+
+        <div class="qr-section">
+            <h3>SSH Remote Access</h3>
+            <p style="color: #666; margin-bottom: 15px; font-size: 12px;">root@YOUR_SERVER_IP_HERE</p>
+            <div class="qr-code">
+                <img src="qrcode_ssh_remote.png" alt="SSH QR Code">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="qr-section">
+            <h3>Machine Connection</h3>
+            <p style="color: #666; margin-bottom: 15px; font-size: 12px;">HOST + USER + KEY + PORT</p>
+            <div class="qr-code">
+                <img src="qrcode_machine_access.png" alt="Machine Access QR Code">
+            </div>
+        </div>
+
+        <div class="info">
+            <strong>📱 Как использовать:</strong><br>
+            1. Открой Claude на телефоне<br>
+            2. Сканируй любой QR код<br>
+            3. Получи доступ к машине<br>
+            4. Управляй мной отсюда! 🎯
+        </div>
+    </div>
+</body>
+</html>

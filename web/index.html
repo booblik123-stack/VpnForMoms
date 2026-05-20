@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraVPN - Защищённый интернет</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .app-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #667eea;
+            transition: all 0.2s;
+        }
+
+        .app-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .header-cat {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background: #f0f4ff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #667eea;
+        }
+
+        .header-cat img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-content {
+            background: white;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .love-message {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .love-message h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .love-message p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            color: #856404;
+            font-size: 13px;
+        }
+
+        .warning strong {
+            color: #ff6b6b;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4ff 100%);
+            border-radius: 15px;
+            border: 2px solid #667eea;
+        }
+
+        .qr-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #667eea;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .cat-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 24px;
+        }
+
+        .cat-image {
+            width: 150px;
+            height: 150px;
+            margin: 15px auto;
+            background: #f0f4ff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #667eea;
+        }
+
+        .cat-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instructions {
+            margin: 30px 0;
+        }
+
+        .instructions h3 {
+            color: #333;
+            margin: 25px 0 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .step-number {
+            font-weight: bold;
+            color: white;
+            background: #667eea;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .download-section {
+            margin: 30px 0;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+        }
+
+        .download-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.2s;
+            margin: 5px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .os-guide {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fffbea;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .os-guide strong {
+            color: #667eea;
+        }
+
+        .support {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f4ff;
+            border-radius: 10px;
+            text-align: center;
+            color: #555;
+            border: 2px solid #667eea;
+        }
+
+        footer {
+            background: white;
+            border-radius: 0 0 20px 20px;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .footer-cat {
+            width: 120px;
+            height: 120px;
+            margin: 10px auto;
+            background: #f0f4ff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #667eea;
+        }
+
+        .footer-cat img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 500px) {
+            header, .main-content, footer {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .qr-code {
+                width: 200px;
+                height: 200px;
+            }
+
+            .header-cat, .cat-image, .footer-cat {
+                width: 130px;
+                height: 130px;
+            }
+
+            .love-message h2 {
+                font-size: 18px;
+            }
+
+            .love-message p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🐱</div>
+            <h1>AstraVPN</h1>
+            <p class="tagline">Защищённый интернет с котиками</p>
+            <div class="header-cat">
+                <img src="cat1.jpg" alt="Астра - котик AstraVPN" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f4ff%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🐱%3C/text%3E%3C/svg%3E'">
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="love-message">
+                <h2>❤️ Создано с любовью</h2>
+                <p>Этот VPN я создал специально для тебя, чтобы твой интернет был защищённым и безопасным.</p>
+                <div class="warning" style="background: rgba(255,255,255,0.2); border-left: none; margin-top: 15px;">
+                    <strong>⚠️ Важно!</strong> Не делись этим VPN с другими людьми. Если им воспользуется много людей — сервис может заблокировать доступ. Это только для тебя! 🔐
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3>📱 Как подключиться</h3>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Скачай приложение <strong>WireGuard</strong>:<br>
+                    <span style="display: block; margin-top: 10px;">
+                        <a href="https://www.wireguard.com/install/" target="_blank" style="color: #667eea; text-decoration: underline; font-weight: bold;">wireguard.com</a>
+                        или
+                        <a href="https://apps.apple.com/app/wireguard/id1451685025" target="_blank" style="color: #667eea; text-decoration: underline;">App Store</a> /
+                        <a href="https://play.google.com/store/apps/details?id=com.wireguard.android" target="_blank" style="color: #667eea; text-decoration: underline;">Google Play</a>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Запусти приложение WireGuard</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Нажми кнопку <strong>"+"</strong> (Добавить туннель)</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Выбери <strong>"Сканировать из QR кода"</strong> или <strong>"Импортировать из файла"</strong></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Сканируй QR код (см. ниже) или загрузи файл <strong>client.conf</strong></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-text">Дай сети название (например, <strong>"AstraVPN"</strong>) и нажми <strong>"Сохранить"</strong></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-text">На экране с кнопками нажми переключатель рядом с названием VPN — дай приложению <strong>разрешение</strong> подключиться к интернету</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <div class="step-text">Нажми <strong>"Активировать"</strong> и готово! 🎉 Твой интернет защищён! 🔒</div>
+                </div>
+            </div>
+
+            <div class="cat-divider">😸</div>
+
+            <div class="cat-image">
+                <img src="cat2.jpg" alt="Астра" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f4ff%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 text-anchor=%22middle%22 dy=%22.3em%22%3E😸%3C/text%3E%3C/svg%3E'">
+            </div>
+
+            <div style="margin: 30px 0; padding: 20px; background: #f0f4ff; border-radius: 15px; border: 2px solid #667eea;">
+                <h3 style="color: #333; margin-bottom: 15px; text-align: center; font-size: 16px;">⬇️ Скачай WireGuard для своего устройства</h3>
+                <div class="app-links">
+                    <a href="https://www.wireguard.com/install/#windows" target="_blank" class="app-link">🪟 Windows</a>
+                    <a href="https://www.wireguard.com/install/#macos" target="_blank" class="app-link">🍎 macOS</a>
+                    <a href="https://www.wireguard.com/install/#ubuntu" target="_blank" class="app-link">🐧 Linux</a>
+                    <a href="https://apps.apple.com/app/wireguard/id1451685025" target="_blank" class="app-link">📱 iOS</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.wireguard.android" target="_blank" class="app-link">🤖 Android</a>
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <h3>🔐 QR код для подключения</h3>
+                <p style="color: #666; margin-bottom: 15px; font-size: 13px;">Наведи камеру на этот код и сканируй в приложении WireGuard</p>
+                <div class="qr-code">
+                    <img src="qrcode.png" alt="QR код для подключения к AstraVPN">
+                </div>
+            </div>
+
+            <div class="cat-divider">😺</div>
+
+            <div class="download-section">
+                <h3>📥 Или скачай конфиг вручную</h3>
+                <a href="client.conf" download class="download-btn">Скачать client.conf</a>
+            </div>
+
+            <div class="cat-divider">🐱</div>
+
+            <div class="cat-image">
+                <img src="cat3.jpg" alt="Астра" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect fill=%22%23f0f4ff%22 width=%22150%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🐱%3C/text%3E%3C/svg%3E'">
+            </div>
+
+            <div class="os-guide">
+                <strong>💡 После подключения:</strong><br>
+                Твой IP-адрес будет защищён и скрыт. Интернет будет безопаснее и надёжнее. Это работает на всех устройствах: компьютер, телефон, планшет.
+            </div>
+
+            <div class="support">
+                <div style="margin-bottom: 10px;">💬 Если что-то не понятно или возникли проблемы</div>
+                <div>Напиши мне — помогу разобраться! 😺</div>
+            </div>
+        </div>
+
+        <footer>
+            <strong>AstraVPN</strong> — защищённый интернет<br>
+            <em>Создано с ❤️ для самой лучшей мамы</em>
+            <div class="footer-cat">
+                <img src="cat4.jpg" alt="Астра" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Crect fill=%22%23f0f4ff%22 width=%22120%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2235%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🐱%3C/text%3E%3C/svg%3E'">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

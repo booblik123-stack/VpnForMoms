@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraVPN - Claude Code</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            background: white;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .claude-message {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .claude-message h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .claude-message p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4ff 100%);
+            border-radius: 15px;
+            border: 2px solid #667eea;
+        }
+
+        .qr-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .qr-code {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #667eea;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .features {
+            margin: 30px 0;
+        }
+
+        .feature {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .download-section {
+            margin: 30px 0;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+        }
+
+        .download-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.2s;
+            margin: 5px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: white;
+            border-radius: 0 0 20px 20px;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 500px) {
+            header, .main-content, footer {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .qr-code {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🧠</div>
+            <h1>AstraVPN Claude</h1>
+            <p class="tagline">Удаленная работа в Claude Code</p>
+        </header>
+
+        <div class="main-content">
+            <div class="claude-message">
+                <h2>🔐 Claude Code</h2>
+                <p>VPN конфигурация для удаленной работы в Claude Code. Оптимизирована для скорости и безопасности.</p>
+            </div>
+
+            <div class="info-box">
+                <strong>✨ Что включено:</strong><br>
+                🤖 Claude AI — через VPN (защищено)<br>
+                🌐 Cloudflare CDN — через VPN (быстро)<br>
+                📘 GitHub — через VPN (код и репо)<br>
+                🇷🇺 РУ сервисы — напрямую (без задержек)<br>
+                💨 Остальной трафик — напрямую
+            </div>
+
+            <div class="qr-section">
+                <h3>📱 Сканируй QR код</h3>
+                <p style="color: #666; margin-bottom: 15px; font-size: 13px;">Откройи WireGuard и сканируй этот код</p>
+                <div class="qr-code">
+                    <img src="qrcode_claude.png" alt="QR код для Claude Code">
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text"><strong>Быстро:</strong> Оптимизирована для Claude с минимальной задержкой</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-text"><strong>Защищено:</strong> Claude и GitHub защищены VPN</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🛰️</div>
+                    <div class="feature-text"><strong>Мобильно:</strong> Работай из кафе, парка, дома</div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">☁️</div>
+                    <div class="feature-text"><strong>CDN:</strong> Cloudflare через VPN для надежного подключения</div>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <h3>📥 Или скачай конфиг вручную</h3>
+                <a href="client_claude.conf" download class="download-btn">Скачать для Claude</a>
+            </div>
+
+            <div class="info-box" style="border-left: 4px solid #667eea; background: #e3f2fd;">
+                <strong>💡 Совет:</strong> Используй эту конфигурацию для удаленной работы в Claude Code. Выбранные IP оптимизированы специально для работы с Claude, GitHub и необходимыми сервисами разработки.
+            </div>
+        </div>
+
+        <footer>
+            <strong>AstraVPN</strong> — удаленная работа везде<br>
+            <em>Оптимизировано для Claude Code 🧠</em>
+        </footer>
+    </div>
+</body>
+</html>
